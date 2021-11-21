@@ -1,0 +1,64 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# ezlm
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of ezlm is to fit a simple linear regression model, outputting easy-to-read
+    results rounded to user's preferred decimal place. A wrapper for lm().
+
+## Installation
+
+The ezlm package is not yet available from [CRAN](https://CRAN.R-project.org). Please download it from this repository using the following R command:
+
+``` r
+devtools::install_github("deansn/ezlm")
+```
+
+## Example
+
+### Fuel Economy and Horsepower in`mtcars`
+
+As a basic demonstration of the `ezlm()` function, begin by calling the function and inputting the appropriate variables (as described in the documentation above).
+
+Let's say we're interested in the effect of fuel economy on horsepower, and we want to see our results to three decimal places:
+
+```{r example1}
+library(ezlm)
+ezlm(mtcars, mtcars$mpg, mtcars$hp, 3)
+```
+
+
+### Urban Population and Assaults in `USArrests`
+
+While this function was designed primarily for linear regressions within the `mtcars` dataset, it should work with other datasets, such as `USArrests`. In this example, let's look at the influence of the urban population proportion on the number of assault charges.
+
+```{r example2}
+ezlm(USArrests, USArrests$UrbanPop, USArrests$Assault, 2)
+```
+
+
+### Inappropriate Inputs
+
+To force my function to throw one of my custom error messages, we can try to replace one of the numerical parameters with a non-accepted input class:
+
+```{r example3, error = TRUE}
+ezlm(mtcars, as.factor(mtcars$mpg), mtcars$hp, 3)
+```
+
+As expected, the function throws the custom error message when the IV is defined as a factor variable.
+

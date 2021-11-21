@@ -1,0 +1,21 @@
+Package: ezlm
+Title: Produce Easy-to-Read Simple Linear Regression Results (One Line, Title Case)
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Nigel",
+           family = "Deans",
+           role = c("aut", "cre"),
+           email = "nigel.deans@ubc.ca",
+           comment = c(ORCID = "https://orcid.org/0000-0002-9798-3108"))
+Description: Fits a simple linear regression model, outputting easy-to-read
+    results rounded to user's preferred decimal place. A wrapper for lm().
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Imports: 
+    stats
