@@ -16,7 +16,9 @@
 #' This parameter is so named to indicate to the user that a number of digits
 #' is required
 #'
-#' @param ... Additional arguments to lower level functions
+#' @param ... Additional arguments to lower level functions. `na.action` can be
+#' useful and takes several values
+#' (see https://stat.ethz.ch/R-manual/R-devel/library/stats/html/lm.html)
 #'
 #' @return Selected results of a linear regression on provided data in an
 #' easy-to-read format composed of text and rounded digits.
@@ -34,6 +36,10 @@ ezlm <- function(dataset, iv, dv, digits, ...) {
   if (!is.numeric(dv)) {
     stop("Sorry! Your DV must be numeric.
          It's currently of class ", class(dv)[1])
+  }
+  if (!is.numeric(digits)) {
+    stop("Sorry! The rounding place (`digits`) must be numeric.
+         It's currently of class ", class(digits)[1])
   }
   model <- stats::lm({{ dv }}~{{ iv}}, {{ dataset }})
   lm_output <- summary(model)
