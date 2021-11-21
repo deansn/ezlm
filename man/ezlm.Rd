@@ -20,7 +20,9 @@ As above, this parameter is so named to avoid confusion about directionality.}
 This parameter is so named to indicate to the user that a number of digits
 is required}
 
-\item{...}{Additional arguments to lower level functions}
+\item{...}{Additional arguments to lower level functions. \code{na.action} can be
+useful and takes several values
+(see https://stat.ethz.ch/R-manual/R-devel/library/stats/html/lm.html)}
 }
 \value{
 Selected results of a linear regression on provided data in an
